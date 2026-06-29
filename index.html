@@ -8,11 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html {scroll-behavior:smooth;}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
 body {
-  <h1 style="color:red;">THIS IS NEW UI</h1>
   background: linear-gradient(135deg,#020617,#0f172a);
   color:#e2e8f0;
 }
@@ -33,7 +36,6 @@ body {
 
 .hero h1 {
   font-size:60px;
-  font-weight:700;
   background: linear-gradient(90deg,#38bdf8,#6366f1,#a78bfa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -58,36 +60,26 @@ body {
 }
 
 .btn:hover {
-  transform:scale(1.07);
-  box-shadow:0 5px 20px rgba(99,102,241,0.5);
+  transform:scale(1.05);
 }
 
 /* SECTION */
-section {padding:70px 0;}
-
-h2 {
-  font-size:32px;
-  margin-bottom:25px;
-  position:relative;
+section {
+  padding:60px 0;
 }
 
-h2::after {
-  content:'';
-  width:60px;
-  height:4px;
-  background:#38bdf8;
-  position:absolute;
-  bottom:-8px;
-  left:0;
+h2 {
+  font-size:30px;
+  margin-bottom:20px;
+  border-bottom:2px solid #38bdf8;
+  display:inline-block;
 }
 
 /* FEATURED */
 .featured {
-  background: rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  border-radius:14px;
-  padding:25px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
 }
 
 .featured img {
@@ -100,40 +92,24 @@ h2::after {
 .projects {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  gap:20px;
 }
 
 .card {
-  background: rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  border-radius:14px;
-  padding:25px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
   transition:0.3s;
 }
 
 .card:hover {
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 20px 40px rgba(56,189,248,0.25);
-}
-
-.card img {
-  width:100%;
-  border-radius:8px;
-  margin-bottom:10px;
+  transform:translateY(-5px);
 }
 
 .links a {
-  margin-right:12px;
-  font-size:14px;
+  margin-right:10px;
   color:#38bdf8;
-}
-
-/* TIMELINE */
-.timeline div {
-  margin-bottom:15px;
-  padding-left:10px;
-  border-left:2px solid #38bdf8;
+  font-size:14px;
 }
 
 /* FOOTER */
@@ -149,32 +125,23 @@ footer {
 
 <div class="container hero">
   <h1>Asmita Gupta</h1>
-  <p>I analyze messy data to uncover revenue opportunities and drive business decisions.</p>
+  <p>I analyze messy data to uncover insights and drive business decisions.</p>
 
-  <!-- 🔗 ADD LINKS HERE -->
   <a class="btn" href="https://github.com/Asmita871">GitHub</a>
   <a class="btn" href="https://www.linkedin.com/in/asmitagupta23/">LinkedIn</a>
-  <a class="btn" href="YOUR_RESUME_LINK">Resume</a>
 </div>
 
 <section class="container">
   <h2>Featured Project</h2>
 
   <div class="featured">
-    <img src="YOUR_FEATURED_IMAGE">
-
-    <h3>Revenue Leakage Detection System</h3>
-
-    <p><strong>Problem:</strong> Business was losing revenue due to cancellations and unavailable products.</p>
-
-    <p><strong>What I Did:</strong> Built pipeline combining 6 datasets (100K+ records).</p>
-
-    <p><strong>Impact:</strong> Identified <strong>100% cancellation SKUs</strong> and key revenue leaks.</p>
-
-    <p><strong>Tools:</strong> Python, Pandas</p>
+    <h3>Revenue Leakage Detection</h3>
+    <p><strong>Problem:</strong> Revenue loss due to cancellations.</p>
+    <p><strong>Solution:</strong> Analyzed 100K+ records using Python.</p>
+    <p><strong>Impact:</strong> Identified 100% cancellation products.</p>
 
     <div class="links">
-      <a href="YOUR_FEATURED_REPO">GitHub</a>
+      <a href="https://github.com/Asmita871">GitHub</a>
     </div>
   </div>
 </section>
@@ -185,60 +152,27 @@ footer {
   <div class="projects">
 
     <div class="card">
-      <img src="YOUR_IMAGE">
-      <h3>Sales Performance Dashboard</h3>
-
-      <p><strong>Problem:</strong> No centralized business view.</p>
-      <p><strong>Solution:</strong> Built Power BI dashboard with KPI tracking.</p>
-      <p><strong>Impact:</strong> Enabled self-service analytics.</p>
-
-      <p style="color:#94a3b8;font-size:14px;">
-        Key Insight: Improved visibility into revenue trends and customer segments.
-      </p>
-
+      <h3>Sales Dashboard</h3>
+      <p>Built Power BI dashboard with KPI tracking.</p>
       <div class="links">
-        <a href="YOUR_REPO">GitHub</a>
+        <a href="https://github.com/Asmita871">GitHub</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="YOUR_IMAGE">
-      <h3>Airbnb Data Cleaning Pipeline</h3>
-
-      <p><strong>Problem:</strong> Raw dataset was inconsistent.</p>
-      <p><strong>Solution:</strong> Applied cleaning & preprocessing.</p>
-      <p><strong>Impact:</strong> Delivered analysis-ready dataset.</p>
-
-      <p style="color:#94a3b8;font-size:14px;">
-        Key Insight: Improved data quality for accurate analysis.
-      </p>
-
+      <h3>Airbnb Data Cleaning</h3>
+      <p>Cleaned dataset using Python & Pandas.</p>
       <div class="links">
-        <a href="YOUR_REPO">GitHub</a>
+        <a href="https://github.com/Asmita871">GitHub</a>
       </div>
     </div>
 
-  </div>
-</section>
-
-<section class="container">
-  <h2>How I Work</h2>
-  <div class="timeline">
-    <div>→ Understand business problem</div>
-    <div>→ Clean & structure data</div>
-    <div>→ Analyze patterns</div>
-    <div>→ Deliver insights via dashboards</div>
   </div>
 </section>
 
 <section class="container">
   <h2>Skills</h2>
-  <p>SQL • Python • Power BI • Data Analysis • KPI Design • Dashboarding</p>
-</section>
-
-<section class="container">
-  <h2>Contact</h2>
-  <p>Email: asmita06080@gmail.com</p>
+  <p>SQL • Python • Power BI • Data Analysis</p>
 </section>
 
 <footer>
