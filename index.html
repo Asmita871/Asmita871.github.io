@@ -8,12 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html {scroll-behavior:smooth;}
 
-body { background:#0f172a; color:#e2e8f0; }
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color:#e2e8f0;
+}
 
-.container { width:90%; max-width:1100px; margin:auto; }
+.container {width:90%;max-width:1100px;margin:auto;}
 
+/* HERO */
 .hero {
   height:100vh;
   display:flex;
@@ -21,36 +26,68 @@ body { background:#0f172a; color:#e2e8f0; }
   justify-content:center;
 }
 
-.hero h1 { font-size:48px; }
-.hero p { margin:15px 0; color:#94a3b8; }
+.hero h1 {
+  font-size:56px;
+  background: linear-gradient(90deg,#38bdf8,#6366f1);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p {
+  margin:15px 0;
+  font-size:18px;
+  color:#94a3b8;
+}
 
 .btn {
   display:inline-block;
   margin:10px 10px 0 0;
   padding:10px 18px;
-  background:#2563eb;
-  color:white;
   border-radius:6px;
   text-decoration:none;
+  background: linear-gradient(90deg,#2563eb,#6366f1);
+  color:white;
+  transition:0.3s;
+}
+.btn:hover {transform:scale(1.05);}
+
+/* SECTION */
+section {padding:70px 0;}
+h2 {margin-bottom:20px;font-size:30px;}
+
+/* FEATURED */
+.featured {
+  background:#020617;
+  padding:30px;
+  border-radius:12px;
+  margin-bottom:40px;
 }
 
-section { padding:60px 0; }
-h2 { margin-bottom:20px; }
+.featured img {
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
+}
 
+/* PROJECT GRID */
 .projects {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+  gap:25px;
 }
 
 .card {
-  background:#1e293b;
+  background:rgba(30,41,59,0.6);
+  backdrop-filter:blur(10px);
   padding:20px;
-  border-radius:10px;
+  border-radius:12px;
   transition:0.3s;
 }
 
-.card:hover { transform:translateY(-5px); }
+.card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(56,189,248,0.2);
+}
 
 .card img {
   width:100%;
@@ -64,6 +101,14 @@ h2 { margin-bottom:20px; }
   color:#38bdf8;
 }
 
+/* TIMELINE */
+.timeline div {
+  margin-bottom:15px;
+  padding-left:10px;
+  border-left:2px solid #38bdf8;
+}
+
+/* FOOTER */
 footer {
   text-align:center;
   padding:20px;
@@ -76,20 +121,29 @@ footer {
 
 <div class="container hero">
   <h1>Asmita Gupta</h1>
-  <p>Data Analyst | Turning messy data into business insights</p>
+  <p>I turn messy, real-world data into insights that drive business decisions.</p>
 
-  <!-- 🔗 ADD LINKS HERE -->
   <a class="btn" href="https://github.com/Asmita871">GitHub</a>
   <a class="btn" href="https://www.linkedin.com/in/asmitagupta23/">LinkedIn</a>
-  <a class="btn" href="YOUR_RESUME_LINK">Download Resume</a>
+  <a class="btn" href="YOUR_RESUME_LINK">Resume</a>
 </div>
 
 <section class="container">
-  <h2>About Me</h2>
-  <p>
-    I work with messy, real-world datasets and turn them into insights that drive decisions.
-    Experienced in analyzing 100K+ records, identifying revenue leakage, and building dashboards.
-  </p>
+  <h2>Featured Project</h2>
+
+  <div class="featured">
+    <img src="YOUR_FEATURED_IMAGE">
+
+    <h3>Revenue Leakage Analysis</h3>
+    <p>
+      Built an end-to-end pipeline analyzing 100K+ records across datasets.
+      Identified 100% cancellation SKUs and major revenue leaks.
+    </p>
+
+    <div class="links">
+      <a href="YOUR_FEATURED_REPO">GitHub</a>
+    </div>
+  </div>
 </section>
 
 <section class="container">
@@ -97,44 +151,21 @@ footer {
 
   <div class="projects">
 
-    <!-- PROJECT 1 -->
     <div class="card">
-      <!-- 🖼 ADD SCREENSHOT -->
-      <img src="YOUR_IMAGE_LINK" alt="Project Screenshot">
-
-      <h3>Revenue Leakage Pipeline</h3>
-      <p>Analyzed 100K+ records to identify high-impact revenue issues.</p>
-
+      <img src="YOUR_IMAGE">
+      <h3>Sales Dashboard</h3>
+      <p>Power BI dashboard with KPI tracking and drill-down insights.</p>
       <div class="links">
-        <!-- 🔗 ADD LINKS -->
-        <a href="YOUR_REPO_LINK">GitHub</a>
-        <a href="#">Live Demo</a>
+        <a href="YOUR_REPO">GitHub</a>
       </div>
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="card">
-      <img src="YOUR_IMAGE_LINK" alt="Project Screenshot">
-
-      <h3>Sales Dashboard (Power BI)</h3>
-      <p>Interactive KPI dashboard with drill-down insights.</p>
-
-      <div class="links">
-        <a href="YOUR_REPO_LINK">GitHub</a>
-        <a href="#">Live Demo</a>
-      </div>
-    </div>
-
-    <!-- PROJECT 3 -->
-    <div class="card">
-      <img src="YOUR_IMAGE_LINK" alt="Project Screenshot">
-
+      <img src="YOUR_IMAGE">
       <h3>Airbnb Data Cleaning</h3>
-      <p>Cleaned dataset using Python & Pandas.</p>
-
+      <p>Data preprocessing pipeline using Python & Pandas.</p>
       <div class="links">
-        <a href="YOUR_REPO_LINK">GitHub</a>
-        <a href="#">Live Demo</a>
+        <a href="YOUR_REPO">GitHub</a>
       </div>
     </div>
 
@@ -142,8 +173,18 @@ footer {
 </section>
 
 <section class="container">
+  <h2>How I Work</h2>
+  <div class="timeline">
+    <div>→ Understand messy data & business problem</div>
+    <div>→ Clean, validate & structure datasets</div>
+    <div>→ Analyze patterns & identify impact</div>
+    <div>→ Build dashboards for decision-making</div>
+  </div>
+</section>
+
+<section class="container">
   <h2>Skills</h2>
-  <p>SQL • Python • Power BI • Data Analysis • Dashboarding • KPI Design</p>
+  <p>SQL • Python • Power BI • Data Analysis • KPI Design • Dashboarding</p>
 </section>
 
 <section class="container">
