@@ -61,18 +61,4 @@ if (track && cards.length) {
   });
 }
 
-// Contact form (static GitHub Pages — opens a mail draft)
-const form = document.getElementById('contactForm');
-const note = document.getElementById('formNote');
-form?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const name = data.get('name');
-  const email = data.get('email');
-  const message = data.get('message');
-  const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-  const body = encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`);
-  window.location.href = `mailto:asmita.gupta@example.com?subject=${subject}&body=${body}`;
-  note.textContent = 'Opening your email app…';
-  form.reset();
-});
+// Contact section now uses direct mailto links (no form needed on static hosting)
