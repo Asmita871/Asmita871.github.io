@@ -36,7 +36,7 @@ if (track && cards.length) {
   cards.forEach((_, i) => {
     const dot = document.createElement('span');
     if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => scrollToCard(i));
+    dot.addEventListener('click', () => { scrollToCard(i); resetAutoplay(); });
     dotsWrap.appendChild(dot);
   });
 
@@ -52,13 +52,73 @@ if (track && cards.length) {
     return Math.round(track.scrollLeft / cardWidth());
   }
 
-  prevBtn?.addEventListener('click', () => scrollToCard(Math.max(0, currentIndex() - 1)));
-  nextBtn?.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, currentIndex() + 1)));
+  function goNext() {
+    const next = (currentIndex() + 1) % cards.length;
+    scrollToCard(next);
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    const prev = (currentIndex() - 1 + cards.length) % cards.length;
+    scrollToCard(prev);
+    resetAutoplay();
+  });
+  nextBtn?.addEventListener('click', () => { goNext(); resetAutoplay(); });
 
   track.addEventListener('scroll', () => {
     const idx = currentIndex();
     dotsWrap.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === idx));
   });
+
+  // Continuous auto-rotate, pausing on hover/touch/focus
+  const AUTOPLAY_MS = 3500;
+  let autoplayTimer = null;
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(goNext, AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  }
+  function resetAutoplay() {
+    startAutoplay();
+  }
+
+  track.addEventListener('mouseenter', stopAutoplay);
+  track.addEventListener('mouseleave', startAutoplay);
+  track.addEventListener('touchstart', stopAutoplay, { passive: true });
+  track.addEventListener('touchend', startAutoplay, { passive: true });
+  track.addEventListener('focusin', stopAutoplay);
+  track.addEventListener('focusout', startAutoplay);
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) startAutoplay();
 }
+
+// Auto-computed hero stats — update automatically as projects/skills change
+(function () {
+  const projectCount = document.querySelectorAll('#carTrack .project-card').length;
+  const toolCount = document.querySelectorAll('.skills-grid .skill[data-type="tool"]').length;
+
+  const statProjects = document.getElementById('statProjects');
+  const statTools = document.getElementById('statTools');
+  const statYears = document.getElementById('statYears');
+  const startEl = document.getElementById('learningStart');
+
+  if (statProjects) statProjects.textContent = projectCount + '+';
+  if (statTools) statTools.textContent = toolCount + '+';
+
+  if (statYears && startEl) {
+    const startDate = new Date(startEl.dataset.start);
+    const now = new Date();
+    let years = now.getFullYear() - startDate.getFullYear();
+    const beforeAnniversary =
+      now.getMonth() < startDate.getMonth() ||
+      (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate());
+    if (beforeAnniversary) years -= 1;
+    years = Math.max(years, 1);
+    statYears.textContent = years + '+';
+  }
+})();
 
 // Contact section now uses direct mailto links (no form needed on static hosting)
