@@ -181,8 +181,9 @@ main{margin-left:var(--sidebar-w)}
 }
 .project-thumb{
   height:140px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  font-size:2.4rem;color:#fff;
+  font-size:2.4rem;color:#fff;overflow:hidden;background:#10142a;
 }
+.project-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .thumb-clean{background:linear-gradient(135deg,#1d2a52,#3fa9ff33)}
 .thumb-ecom{background:linear-gradient(135deg,#3a1d52,#ff5cc833)}
 .thumb-sales{background:linear-gradient(135deg,#2a1d52,#9b5cff33)}
