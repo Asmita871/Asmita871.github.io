@@ -102,23 +102,9 @@ if (track && cards.length) {
 
   const statProjects = document.getElementById('statProjects');
   const statTools = document.getElementById('statTools');
-  const statYears = document.getElementById('statYears');
-  const startEl = document.getElementById('learningStart');
 
   if (statProjects) statProjects.textContent = projectCount + '+';
   if (statTools) statTools.textContent = toolCount + '+';
-
-  if (statYears && startEl) {
-    const startDate = new Date(startEl.dataset.start);
-    const now = new Date();
-    let years = now.getFullYear() - startDate.getFullYear();
-    const beforeAnniversary =
-      now.getMonth() < startDate.getMonth() ||
-      (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate());
-    if (beforeAnniversary) years -= 1;
-    years = Math.max(years, 1);
-    statYears.textContent = years + '+';
-  }
 })();
 
 // Contact section now uses direct mailto links (no form needed on static hosting)
